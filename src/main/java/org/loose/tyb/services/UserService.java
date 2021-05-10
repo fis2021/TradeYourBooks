@@ -3,6 +3,7 @@ package org.loose.tyb.services;
 
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
+import org.loose.tyb.exceptions.AccountExists;
 import org.loose.tyb.exceptions.UsernameAlreadyExistsException;
 import org.loose.tyb.model.User;
 
@@ -19,7 +20,7 @@ public class UserService {
 
     public static void initDatabase() {
         Nitrite database = Nitrite.builder()
-                .filePath(getPathToFile("registration-example.db").toFile())
+                .filePath(getPathToFile("tradeyourbooks.db").toFile())
                 .openOrCreate("test", "test");
 
         userRepository = database.getRepository(User.class);
@@ -58,5 +59,32 @@ public class UserService {
         return md;
     }
 
+    public static void verifyLogin(String username,String password) throws AccountExists {
+        checkUserCredentialsInLogin(username,password);
+    }
+
+    private static void checkUserCredentialsInLogin(String username, String password) throws AccountExists {
+        int contor=0;
+        for(User user : userRepository.find()) {
+            if(Objects.equals(username,user.getUsername()))
+            {
+                if(Objects.equals(user.getPassword(),encodePassword(username,password)))
+                {
+                    contor++;
+                }
+            }
+        }
+        if(contor==0)
+        {
+            throw new AccountExists();
+        }
+    }
+
+    public static void checkUsernameAndPassword(String username,String password) throws AccountExists {
+        for (User user : userRepository.find()) {
+            if (Objects.equals(username, user.getUsername())&&Objects.equals(encodePassword(username,password), user.getPassword()))
+                throw new AccountExists(username);
+        }
+    }
 
 }
