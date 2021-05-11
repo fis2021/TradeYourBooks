@@ -43,7 +43,7 @@ public class LoginController {
             loginMessage.setText("Correct");
             try {
                 Stage stage = (Stage) loginMessage.getScene().getWindow();
-                Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("meansOfTransport.fxml"));
+                Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("userHome.fxml"));
                 Scene scene = new Scene(viewStudentsRoot, 900, 700);
                 stage.setScene(scene);
             } catch (IOException p) {
