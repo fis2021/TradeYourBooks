@@ -21,7 +21,7 @@
         </TableView>
         <TextField fx:id="Bookname" layoutX="59.0" layoutY="214.0" />
         <TextField fx:id="Author" layoutX="59.0" layoutY="272.0" />
-        <TextField fx:id="Year" layoutX="59.0" layoutY="331.0" />
+        <TextField fx:id="Year" layoutX="59.0" layoutY="322.0" />
         <Label layoutX="59.0" layoutY="181.0" prefHeight="33.0" prefWidth="125.0" text="Book name">
             <font>
                 <Font size="18.0" />
@@ -49,9 +49,9 @@
         <Button fx:id="pastTradesButton" layoutX="427.0" layoutY="80.0" mnemonicParsing="false" onAction="#handlePastTradesButton" prefHeight="45.0" prefWidth="119.0" text="Past trades" />
         <Button fx:id="logoutButton" layoutX="698.0" layoutY="80.0" mnemonicParsing="false" onAction="#handleLogoutButton" prefHeight="45.0" prefWidth="119.0" text="Logout" />
         <Button fx:id="seeRequestsButton" layoutX="294.0" layoutY="80.0" mnemonicParsing="false" onAction="#handleSeeRequestsButton" prefHeight="45.0" prefWidth="119.0" text="See trade requests" />
-        <Text fx:id="TEXT" layoutX="59.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="189.0" />
+        <Text fx:id="TEXT" layoutX="60.0" layoutY="454.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="189.0" />
       <Button fx:id="homePageButton" layoutX="560.0" layoutY="80.0" mnemonicParsing="false" onAction="#handleHomePageButton" prefHeight="45.0" prefWidth="125.0" text="Home Page" />
-      <Label layoutX="36.0" layoutY="52.0" prefHeight="102.0" prefWidth="212.0" text="Your Library">
+      <Label layoutX="48.0" layoutY="52.0" prefHeight="102.0" prefWidth="212.0" text="Your Library">
          <font>
             <Font size="33.0" />
          </font>
