@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.loose.tyb.exceptions.AccountExists;
+import org.loose.tyb.services.BookService;
 
 import java.io.IOException;
 

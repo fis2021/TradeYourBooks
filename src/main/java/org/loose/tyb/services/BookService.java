@@ -6,7 +6,6 @@ import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 import org.loose.tyb.model.Book;
 
-
 import static org.loose.tyb.services.FileSystemService.getPathToFile;
 
 public class BookService {
@@ -15,7 +14,7 @@ public class BookService {
 
     public static void initDatabase() {
         Nitrite database = Nitrite.builder()
-                .filePath(getPathToFile("books.db").toFile())
+                .filePath(getPathToFile("TYB.db").toFile())
                 .openOrCreate("test", "test");
 
         userRepository = database.getRepository(Book.class);
@@ -29,6 +28,10 @@ public class BookService {
             list.add(book);
         }
         return list;
+    }
+
+    public static void addBook(String bookname, String author, int year, String publisher) {
+            userRepository.insert(new Book(bookname, author, year, publisher));
     }
 
 }
