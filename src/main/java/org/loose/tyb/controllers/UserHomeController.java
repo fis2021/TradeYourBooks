@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.loose.tyb.exceptions.BookExists;
 import org.loose.tyb.model.Book;
 import org.loose.tyb.services.BookService;
 
@@ -45,6 +46,12 @@ public class UserHomeController {
 
     @FXML
     private TextField Publisher;
+
+    @FXML
+    private TableColumn<Book, Integer> colnoEx;
+
+    @FXML
+    private TextField noEx;
 
     @FXML
     private Button addButton;
@@ -111,26 +118,43 @@ public class UserHomeController {
         colAuthor.setCellValueFactory(new PropertyValueFactory<Book,String>("Author"));
         colYear.setCellValueFactory(new PropertyValueFactory<Book,Integer>("Year"));
         colPublisher.setCellValueFactory(new PropertyValueFactory<Book,String>("Publisher"));
+        colnoEx.setCellValueFactory(new PropertyValueFactory<Book,Integer>("noEx"));
+
 
         table.setItems(BookService.Lista());
     }
 
-    public void handleAddButton(javafx.event.ActionEvent actionEvent) {
+    public void handleAddButton(javafx.event.ActionEvent actionEvent) throws BookExists, NumberFormatException {
         try {
-            BookService.addBook(Bookname.getText(), Author.getText(), Integer.parseInt(Year.getText()), Publisher.getText());
+            BookService.addBook(Bookname.getText(), Author.getText(), Integer.parseInt(Year.getText()), Publisher.getText(), Integer.parseInt(noEx.getText()));
             colBookName.setCellValueFactory(new PropertyValueFactory<Book,String>("Bookname"));
             colAuthor.setCellValueFactory(new PropertyValueFactory<Book,String>("Author"));
             colYear.setCellValueFactory(new PropertyValueFactory<Book,Integer>("Year"));
             colPublisher.setCellValueFactory(new PropertyValueFactory<Book,String>("Publisher"));
+            colnoEx.setCellValueFactory(new PropertyValueFactory<Book,Integer>("noEx"));
 
             table.setItems(BookService.Lista());
-            TEXT.setText("");}
+            TEXT.setText("");
+        }
         catch(NumberFormatException k)
         {
             TEXT.setText("Wrong data type");
         }
+        catch(BookExists k)
+        {
+            TEXT.setText("Book already exists");
+        }
     }
     public void handleEditButton(javafx.event.ActionEvent actionEvent) {
+        try {
+
+            BookService.editBook(Bookname.getText(),Author.getText(),Integer.parseInt(Year.getText()), Publisher.getText(), Integer.parseInt(noEx.getText()));
+            table.setItems(BookService.Lista());
+        }
+        catch (NumberFormatException k)
+        {
+            TEXT.setText("Wrong data type");
+        }
     }
     public void handleDeleteButton(javafx.event.ActionEvent actionEvent) {
     }

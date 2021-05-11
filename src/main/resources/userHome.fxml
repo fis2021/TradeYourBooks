@@ -11,12 +11,13 @@
 
 <AnchorPane prefHeight="668.0" prefWidth="853.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.loose.tyb.controllers.UserHomeController">
     <children>
-        <TableView fx:id="table" layoutX="294.0" layoutY="166.0" prefHeight="478.0" prefWidth="532.0">
+        <TableView fx:id="table" layoutX="230.0" layoutY="166.0" prefHeight="478.0" prefWidth="596.0">
             <columns>
-                <TableColumn fx:id="colBookName" prefWidth="252.0" text="Book name" />
-                <TableColumn fx:id="colAuthor" prefWidth="86.0" text="Author" />
-                <TableColumn fx:id="colYear" prefWidth="59.0" text="Year" />
-                <TableColumn fx:id="colPublisher" prefWidth="134.0" text="Publisher" />
+                <TableColumn fx:id="colBookName" prefWidth="227.0" text="Book name" />
+                <TableColumn fx:id="colAuthor" prefWidth="135.0" text="Author" />
+                <TableColumn fx:id="colYear" minWidth="0.0" prefWidth="56.0" text="Year" />
+                <TableColumn fx:id="colPublisher" minWidth="0.0" prefWidth="106.0" text="Publisher" />
+            <TableColumn fx:id="colnoEx" prefWidth="71.0" text="No. of ex." />
             </columns>
         </TableView>
         <TextField fx:id="Bookname" layoutX="59.0" layoutY="214.0" />
@@ -27,7 +28,7 @@
                 <Font size="18.0" />
             </font>
         </Label>
-        <TextField fx:id="Publisher" layoutX="59.0" layoutY="405.0" />
+        <TextField fx:id="Publisher" layoutX="59.0" layoutY="374.0" />
         <Label layoutX="59.0" layoutY="239.0" prefHeight="33.0" prefWidth="149.0" text="Author">
             <font>
                 <Font size="18.0" />
@@ -38,7 +39,7 @@
                 <Font size="18.0" />
             </font>
         </Label>
-        <Label layoutX="59.0" layoutY="372.0" prefHeight="33.0" prefWidth="189.0" text="Publisher">
+        <Label layoutX="60.0" layoutY="347.0" prefHeight="33.0" prefWidth="189.0" text="Publisher">
             <font>
                 <Font size="18.0" />
             </font>
@@ -49,12 +50,18 @@
         <Button fx:id="pastTradesButton" layoutX="427.0" layoutY="80.0" mnemonicParsing="false" onAction="#handlePastTradesButton" prefHeight="45.0" prefWidth="119.0" text="Past trades" />
         <Button fx:id="logoutButton" layoutX="698.0" layoutY="80.0" mnemonicParsing="false" onAction="#handleLogoutButton" prefHeight="45.0" prefWidth="119.0" text="Logout" />
         <Button fx:id="seeRequestsButton" layoutX="294.0" layoutY="80.0" mnemonicParsing="false" onAction="#handleSeeRequestsButton" prefHeight="45.0" prefWidth="119.0" text="See trade requests" />
-        <Text fx:id="TEXT" layoutX="60.0" layoutY="454.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="189.0" />
+        <Text fx:id="TEXT" layoutX="56.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="189.0" />
       <Button fx:id="homePageButton" layoutX="560.0" layoutY="80.0" mnemonicParsing="false" onAction="#handleHomePageButton" prefHeight="45.0" prefWidth="125.0" text="Home Page" />
       <Label layoutX="48.0" layoutY="52.0" prefHeight="102.0" prefWidth="212.0" text="Your Library">
          <font>
             <Font size="33.0" />
          </font>
       </Label>
+      <Label layoutX="59.0" layoutY="405.0" prefHeight="25.0" prefWidth="149.0" text="No. of Ex.">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="noEx" layoutX="59.0" layoutY="437.0" />
     </children>
 </AnchorPane>
