@@ -157,6 +157,8 @@ public class UserHomeController {
         }
     }
     public void handleDeleteButton(javafx.event.ActionEvent actionEvent) {
+        BookService.deleteVehicle(Bookname.getText());
+        table.setItems(BookService.Lista());
     }
     public void handlePastTradesButton(javafx.event.ActionEvent actionEvent) {
     }

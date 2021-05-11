@@ -55,4 +55,12 @@ public class BookService {
         }
     }
 
+    public static void deleteVehicle(String vehicleType) {
+        for (Book k : userRepository.find()) {
+            if(k.getBookname().equals(vehicleType))
+                userRepository.remove(k);
+        }
+    }
+
+
 }
