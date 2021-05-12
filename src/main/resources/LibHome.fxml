@@ -37,8 +37,8 @@
         <Button fx:id="tradeButton" layoutX="59.0" layoutY="535.0" mnemonicParsing="false" onAction="#handleOfferTradeButton" prefHeight="45.0" prefWidth="149.0" text="Offer trade" />
         <Button fx:id="logoutButton" layoutX="788.0" layoutY="80.0" mnemonicParsing="false" onAction="#handleLogoutButton" prefHeight="45.0" prefWidth="119.0" text="Logout" />
         <Text fx:id="TEXT" layoutX="56.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="189.0" />
-        <Button fx:id="homePageButton" layoutX="638.0" layoutY="81.0" mnemonicParsing="false" onAction="#handleHomePageButton" prefHeight="45.0" prefWidth="125.0" text="Home Page" />
-        <Label layoutX="48.0" layoutY="52.0" prefHeight="102.0" prefWidth="212.0" text="LIBRARY">
+        <Button fx:id="homePageButton" layoutX="650.0" layoutY="80.0" mnemonicParsing="false" onAction="#handleHomePageButton" prefHeight="45.0" prefWidth="125.0" text="Home Page" />
+        <Label layoutX="402.0" layoutY="14.0" prefHeight="102.0" prefWidth="212.0" text="LIBRARY">
             <font>
                 <Font size="33.0" />
             </font>
