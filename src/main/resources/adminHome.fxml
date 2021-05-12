@@ -22,13 +22,13 @@
             </columns>
         </TableView>
         <TextField fx:id="aBookname" layoutX="59.0" layoutY="214.0" />
-        <TextField fx:id="aAuthor" layoutX="59.0" layoutY="272.0" />
+        <TextField fx:id="aOwner" layoutX="59.0" layoutY="272.0" />
         <Label layoutX="59.0" layoutY="181.0" prefHeight="33.0" prefWidth="125.0" text="Book name">
             <font>
                 <Font size="18.0" />
             </font>
         </Label>
-        <Label layoutX="59.0" layoutY="239.0" prefHeight="33.0" prefWidth="149.0" text="Author">
+        <Label layoutX="59.0" layoutY="239.0" prefHeight="33.0" prefWidth="149.0" text="Owner">
             <font>
                 <Font size="18.0" />
             </font>

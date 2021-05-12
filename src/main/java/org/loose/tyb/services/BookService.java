@@ -60,7 +60,7 @@ public class BookService {
     public static void editBook(String o, String Bookname, String Author, int Year, String Publisher, int ne)
     {
         for (Book k : userRepository.find()) {
-            if(k.getBookname().equals(Bookname)){
+            if(k.getBookname().equals(Bookname) &&  k.getOwner().equals(LoginController.loggedInAcc)){
                 k.setOwner(o);
                 k.setAuthor(Author);
                 k.setYear(Year);
@@ -73,7 +73,7 @@ public class BookService {
 
     public static void deleteBook(String Bookname) {
         for (Book k : userRepository.find()) {
-            if(k.getBookname().equals(Bookname))
+            if(k.getBookname().equals(Bookname) && k.getOwner().equals(LoginController.loggedInAcc))
                 userRepository.remove(k);
         }
     }

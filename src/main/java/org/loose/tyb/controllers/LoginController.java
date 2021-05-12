@@ -47,7 +47,7 @@ public class LoginController {
         }
         catch(AccountExists e)
         {
-            loginMessage.setText("Correct");
+            loginMessage.setText("Logged In successfully");
             ObservableList<User> list = UserService.Lista();
             try {
                 loggedInAcc = usernameField.getText();
