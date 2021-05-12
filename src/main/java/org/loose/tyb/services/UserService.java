@@ -1,6 +1,8 @@
 package org.loose.tyb.services;
 
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 import org.loose.tyb.exceptions.AccountExists;
@@ -20,7 +22,7 @@ public class UserService {
 
     public static void initDatabase() {
         Nitrite database = Nitrite.builder()
-                .filePath(getPathToFile("TYB2.db").toFile())
+                .filePath(getPathToFile("TradeYB11.db").toFile())
                 .openOrCreate("test", "test");
 
         userRepository = database.getRepository(User.class);
@@ -85,6 +87,16 @@ public class UserService {
             if (Objects.equals(username, user.getUsername())&&Objects.equals(encodePassword(username,password), user.getPassword()))
                 throw new AccountExists(username);
         }
+    }
+
+    public static ObservableList<User> Lista()
+    {
+        ObservableList<User>list= FXCollections.observableArrayList();;
+
+        for (User k : userRepository.find()) {
+            list.add(k);
+        }
+        return list;
     }
 
 }

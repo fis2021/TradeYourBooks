@@ -17,7 +17,7 @@
                 <TableColumn fx:id="colAuthor" prefWidth="135.0" text="Author" />
                 <TableColumn fx:id="colYear" minWidth="0.0" prefWidth="56.0" text="Year" />
                 <TableColumn fx:id="colPublisher" minWidth="0.0" prefWidth="106.0" text="Publisher" />
-            <TableColumn fx:id="colnoEx" prefWidth="71.0" text="No. of ex." />
+                <TableColumn fx:id="colnoEx" prefWidth="71.0" text="No. of ex." />
             </columns>
         </TableView>
         <TextField fx:id="Bookname" layoutX="59.0" layoutY="214.0" />
@@ -51,17 +51,17 @@
         <Button fx:id="logoutButton" layoutX="698.0" layoutY="80.0" mnemonicParsing="false" onAction="#handleLogoutButton" prefHeight="45.0" prefWidth="119.0" text="Logout" />
         <Button fx:id="seeRequestsButton" layoutX="294.0" layoutY="80.0" mnemonicParsing="false" onAction="#handleSeeRequestsButton" prefHeight="45.0" prefWidth="119.0" text="See trade requests" />
         <Text fx:id="TEXT" layoutX="56.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="189.0" />
-      <Button fx:id="homePageButton" layoutX="560.0" layoutY="80.0" mnemonicParsing="false" onAction="#handleHomePageButton" prefHeight="45.0" prefWidth="125.0" text="Home Page" />
-      <Label layoutX="48.0" layoutY="52.0" prefHeight="102.0" prefWidth="212.0" text="Your Library">
-         <font>
-            <Font size="33.0" />
-         </font>
-      </Label>
-      <Label layoutX="59.0" layoutY="405.0" prefHeight="25.0" prefWidth="149.0" text="No. of Ex.">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="noEx" layoutX="59.0" layoutY="437.0" />
+        <Button fx:id="homePageButton" layoutX="560.0" layoutY="80.0" mnemonicParsing="false" onAction="#handleHomePageButton" prefHeight="45.0" prefWidth="125.0" text="Home Page" />
+        <Label layoutX="48.0" layoutY="52.0" prefHeight="102.0" prefWidth="212.0" text="Your Library">
+            <font>
+                <Font size="33.0" />
+            </font>
+        </Label>
+        <Label layoutX="59.0" layoutY="405.0" prefHeight="25.0" prefWidth="149.0" text="No. of Ex.">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <TextField fx:id="noEx" layoutX="59.0" layoutY="437.0" />
     </children>
 </AnchorPane>
