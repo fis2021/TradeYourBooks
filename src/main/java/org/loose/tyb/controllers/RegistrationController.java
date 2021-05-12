@@ -12,6 +12,8 @@ import javafx.stage.Stage;
 import org.loose.tyb.exceptions.UsernameAlreadyExistsException;
 import org.loose.tyb.services.UserService;
 
+import java.io.IOException;
+
 public class RegistrationController {
 
     @FXML
@@ -25,6 +27,18 @@ public class RegistrationController {
     public void handleRegisterAction() throws Exception {
 
         try {
+            String username = usernameField.getText();
+            String password = passwordField.getText();
+
+            if (username == null || username.isEmpty()) {
+                registrationMessage.setText("Please type in a username!");
+                return;
+            }
+
+            if (password == null || password.isEmpty()) {
+                registrationMessage.setText("Password cannot be empty");
+                return;
+            }
             UserService.addUser(usernameField.getText(), passwordField.getText());
             registrationMessage.setText("Account created successfully!");
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
@@ -37,7 +51,7 @@ public class RegistrationController {
         }
     }
 
-    public void handleLogInAction() throws Exception{
+    public void handleLogInAction() throws IOException {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
             Stage stage = (Stage) registrationMessage.getScene().getWindow();
             stage.setTitle("Trade your books");
