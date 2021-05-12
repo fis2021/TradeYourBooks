@@ -104,7 +104,7 @@ public class LibHomeController {
         try{
             Stage stage = (Stage) TEXT.getScene().getWindow();
             Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
-            Scene scene = new Scene(viewStudentsRoot, 600, 400);
+            Scene scene = new Scene(viewStudentsRoot, 300, 275);
             stage.setScene(scene);
         }catch(IOException e) {
             e.printStackTrace();

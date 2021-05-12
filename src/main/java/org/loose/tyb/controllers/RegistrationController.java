@@ -20,27 +20,28 @@ public class RegistrationController {
     private PasswordField passwordField;
     @FXML
     private TextField usernameField;
-    @FXML
-    private ChoiceBox<String> role;
-
-    @FXML
-    public void initialize() {
-        role.getItems().addAll("User", "Admin");
-    }
 
     @FXML
     public void handleRegisterAction() throws Exception {
 
         try {
-            UserService.addUser(usernameField.getText(), passwordField.getText(), role.getValue());
+            UserService.addUser(usernameField.getText(), passwordField.getText());
             registrationMessage.setText("Account created successfully!");
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
             Stage stage = (Stage) registrationMessage.getScene().getWindow();
             stage.setTitle("Trade your books");
-            stage.setScene(new Scene(root, 300, 275));
+            stage.setScene(new Scene(root, 400, 275));
             stage.show();
         } catch (UsernameAlreadyExistsException e) {
             registrationMessage.setText(e.getMessage());
         }
+    }
+
+    public void handleLogInAction() throws Exception{
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
+            Stage stage = (Stage) registrationMessage.getScene().getWindow();
+            stage.setTitle("Trade your books");
+            stage.setScene(new Scene(root, 400, 275));
+            stage.show();
     }
 }

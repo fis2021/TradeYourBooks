@@ -48,21 +48,33 @@ public class LoginController {
         catch(AccountExists e)
         {
             loginMessage.setText("Logged In successfully");
-            ObservableList<User> list = UserService.Lista();
-            try {
-                loggedInAcc = usernameField.getText();
-                Stage stage = (Stage) loginMessage.getScene().getWindow();
-                Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("userHome.fxml"));
-                Scene scene = new Scene(viewStudentsRoot, 900, 700);
-                stage.setScene(scene);
 
-            } catch (IOException p) {
-                p.printStackTrace();
+
+            if(!(username.equals("admin") && password.equals("admin"))) {
+                try {
+                    loggedInAcc = usernameField.getText();
+                    Stage stage = (Stage) loginMessage.getScene().getWindow();
+                    Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("userHome.fxml"));
+                    Scene scene = new Scene(viewStudentsRoot, 900, 700);
+                    stage.setScene(scene);
+                } catch (IOException p) {
+                    p.printStackTrace();
+                }
+            }
+            else{
+                try{
+                    Stage stage = (Stage) loginMessage.getScene().getWindow();
+                    Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("adminHome.fxml"));
+                    Scene scene = new Scene(viewStudentsRoot, 980, 700);
+                    stage.setScene(scene);
+                }catch (IOException p) {
+                    p.printStackTrace();
+                }
             }
             return;
         }
 
-        loginMessage.setText("Incorrect login!");
+        loginMessage.setText("Incorrect username or password!");
     }
 
     @FXML
@@ -71,7 +83,7 @@ public class LoginController {
         try {
             Stage stage = (Stage) loginMessage.getScene().getWindow();
             Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
-            Scene scene = new Scene(viewStudentsRoot, 600, 400);
+            Scene scene = new Scene(viewStudentsRoot, 400, 275);
             stage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();

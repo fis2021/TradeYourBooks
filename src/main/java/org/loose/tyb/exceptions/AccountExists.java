@@ -13,7 +13,4 @@ public class AccountExists extends Exception {
 
     }
 
-    public String getUsername() {
-        return username;
-    }
 }
