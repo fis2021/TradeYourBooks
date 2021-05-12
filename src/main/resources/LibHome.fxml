@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="668.0" prefWidth="930.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.loose.tyb.controllers.LibHomeController">
+    <children>
+        <TableView fx:id="table" layoutX="230.0" layoutY="166.0" prefHeight="478.0" prefWidth="677.0">
+            <columns>
+            <TableColumn fx:id="colLibOwner" prefWidth="98.0" text="Owner" />
+                <TableColumn fx:id="collLibBookName" prefWidth="250.0" text="Book name" />
+                <TableColumn fx:id="colLibAuthor" prefWidth="113.0" text="Author" />
+                <TableColumn fx:id="colLibYear" minWidth="0.0" prefWidth="53.0" text="Year" />
+                <TableColumn fx:id="colLibPublisher" minWidth="0.0" prefWidth="97.0" text="Publisher" />
+                <TableColumn fx:id="colLibnoEx" prefWidth="65.0" text="No. of ex." />
+            </columns>
+        </TableView>
+        <TextField fx:id="libBookname" layoutX="59.0" layoutY="214.0" />
+        <TextField fx:id="libOwner" layoutX="59.0" layoutY="272.0" />
+        <Label layoutX="59.0" layoutY="181.0" prefHeight="33.0" prefWidth="125.0" text="Book name">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Label layoutX="59.0" layoutY="239.0" prefHeight="33.0" prefWidth="149.0" text="Owner">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Button fx:id="reportButton" layoutX="59.0" layoutY="599.0" mnemonicParsing="false" onAction="#handleReportButton" prefHeight="45.0" prefWidth="149.0" text="Report" />
+        <Button fx:id="tradeButton" layoutX="59.0" layoutY="535.0" mnemonicParsing="false" onAction="#handleOfferTradeButton" prefHeight="45.0" prefWidth="149.0" text="Offer trade" />
+        <Button fx:id="logoutButton" layoutX="788.0" layoutY="80.0" mnemonicParsing="false" onAction="#handleLogoutButton" prefHeight="45.0" prefWidth="119.0" text="Logout" />
+        <Text fx:id="TEXT" layoutX="56.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="189.0" />
+        <Button fx:id="homePageButton" layoutX="638.0" layoutY="81.0" mnemonicParsing="false" onAction="#handleHomePageButton" prefHeight="45.0" prefWidth="125.0" text="Home Page" />
+        <Label layoutX="48.0" layoutY="52.0" prefHeight="102.0" prefWidth="212.0" text="LIBRARY">
+            <font>
+                <Font size="33.0" />
+            </font>
+        </Label>
+        <Label layoutX="59.0" layoutY="321.0" prefHeight="25.0" prefWidth="149.0" text="Report Reason">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <TextField fx:id="libRR" layoutX="59.0" layoutY="362.0" />
+    </children>
+</AnchorPane>

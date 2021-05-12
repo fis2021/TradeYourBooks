@@ -75,7 +75,7 @@ public class UserHomeController {
     private Text TEXT;
 
     @FXML
-    private Button homePageButton;
+    private Button LibPageButton;
 
     public UserHomeController() {
     }
@@ -124,7 +124,7 @@ public class UserHomeController {
         colnoEx.setCellValueFactory(new PropertyValueFactory<Book,Integer>("noEx"));
 
 
-        table.setItems(BookService.Lista2());
+        table.setItems(BookService.Lista());
     }
 
     public void handleAddButton(javafx.event.ActionEvent actionEvent) throws NumberFormatException, BookExists {
@@ -136,7 +136,7 @@ public class UserHomeController {
             colPublisher.setCellValueFactory(new PropertyValueFactory<Book,String>("Publisher"));
             colnoEx.setCellValueFactory(new PropertyValueFactory<Book,Integer>("noEx"));
 
-            table.setItems(BookService.Lista2());
+            table.setItems(BookService.Lista());
             TEXT.setText("");
         }
         catch(NumberFormatException k)
@@ -160,7 +160,7 @@ public class UserHomeController {
         }
     }
     public void handleDeleteButton(javafx.event.ActionEvent actionEvent) {
-        BookService.deleteVehicle(Bookname.getText());
+        BookService.deleteBook(Bookname.getText());
         table.setItems(BookService.Lista());
     }
     public void handlePastTradesButton(javafx.event.ActionEvent actionEvent) {
@@ -177,6 +177,14 @@ public class UserHomeController {
     }
     public void handleSeeRequestsButton(javafx.event.ActionEvent actionEvent) {
     }
-    public void handleHomePageButton(javafx.event.ActionEvent actionEvent) {
+    public void handleLibPageButton(javafx.event.ActionEvent actionEvent) {
+        try{
+            Stage stage = (Stage) TEXT.getScene().getWindow();
+            Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("LibHome.fxml"));
+            Scene scene = new Scene(viewStudentsRoot, 950, 700);
+            stage.setScene(scene);
+        }catch(IOException e) {
+            e.printStackTrace();
+        }
     }
 }
