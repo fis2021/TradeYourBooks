@@ -1,5 +1,6 @@
 package org.loose.tyb.controllers;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,7 +10,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.loose.tyb.exceptions.AccountExists;
+import org.loose.tyb.model.User;
 import org.loose.tyb.services.BookService;
+import org.loose.tyb.services.UserService;
 
 import java.io.IOException;
 
@@ -21,6 +24,9 @@ public class LoginController {
     public PasswordField passwordField;
     @FXML
     public TextField usernameField;
+
+    public static String loggedInAcc;
+
 
     @FXML
     public void handleLoginButtonAction() {
@@ -42,11 +48,14 @@ public class LoginController {
         catch(AccountExists e)
         {
             loginMessage.setText("Correct");
+            ObservableList<User> list = UserService.Lista();
             try {
+                loggedInAcc = usernameField.getText();
                 Stage stage = (Stage) loginMessage.getScene().getWindow();
                 Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("userHome.fxml"));
                 Scene scene = new Scene(viewStudentsRoot, 900, 700);
                 stage.setScene(scene);
+
             } catch (IOException p) {
                 p.printStackTrace();
             }

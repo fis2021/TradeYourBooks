@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 import org.loose.tyb.exceptions.BookExists;
 import org.loose.tyb.model.Book;
 import org.loose.tyb.services.BookService;
-
+import org.loose.tyb.controllers.LoginController;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 
@@ -77,6 +77,9 @@ public class UserHomeController {
     @FXML
     private Button homePageButton;
 
+    public UserHomeController() {
+    }
+
     @FXML
     public void handleAddButton(ActionEvent event) {
 
@@ -121,19 +124,19 @@ public class UserHomeController {
         colnoEx.setCellValueFactory(new PropertyValueFactory<Book,Integer>("noEx"));
 
 
-        table.setItems(BookService.Lista());
+        table.setItems(BookService.Lista2());
     }
 
-    public void handleAddButton(javafx.event.ActionEvent actionEvent) throws BookExists, NumberFormatException {
+    public void handleAddButton(javafx.event.ActionEvent actionEvent) throws NumberFormatException, BookExists {
         try {
-            BookService.addBook(Bookname.getText(), Author.getText(), Integer.parseInt(Year.getText()), Publisher.getText(), Integer.parseInt(noEx.getText()));
+            BookService.addBook(LoginController.loggedInAcc,Bookname.getText(), Author.getText(), Integer.parseInt(Year.getText()), Publisher.getText(), Integer.parseInt(noEx.getText()));
             colBookName.setCellValueFactory(new PropertyValueFactory<Book,String>("Bookname"));
             colAuthor.setCellValueFactory(new PropertyValueFactory<Book,String>("Author"));
             colYear.setCellValueFactory(new PropertyValueFactory<Book,Integer>("Year"));
             colPublisher.setCellValueFactory(new PropertyValueFactory<Book,String>("Publisher"));
             colnoEx.setCellValueFactory(new PropertyValueFactory<Book,Integer>("noEx"));
 
-            table.setItems(BookService.Lista());
+            table.setItems(BookService.Lista2());
             TEXT.setText("");
         }
         catch(NumberFormatException k)
@@ -148,7 +151,7 @@ public class UserHomeController {
     public void handleEditButton(javafx.event.ActionEvent actionEvent) {
         try {
 
-            BookService.editBook(Bookname.getText(),Author.getText(),Integer.parseInt(Year.getText()), Publisher.getText(), Integer.parseInt(noEx.getText()));
+            BookService.editBook(LoginController.loggedInAcc, Bookname.getText(),Author.getText(),Integer.parseInt(Year.getText()), Publisher.getText(), Integer.parseInt(noEx.getText()));
             table.setItems(BookService.Lista());
         }
         catch (NumberFormatException k)
