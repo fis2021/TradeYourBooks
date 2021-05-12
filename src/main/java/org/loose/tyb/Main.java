@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.loose.tyb.services.BookService;
 import org.loose.tyb.services.FileSystemService;
+import org.loose.tyb.services.LibService;
 import org.loose.tyb.services.UserService;
 
 import java.nio.file.Files;
@@ -20,6 +21,7 @@ public class Main extends Application {
         initDirectory();
         UserService.initDatabase();
         BookService.initDatabase();
+        //LibService.initDatabase();
 
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("login.fxml")));
         primaryStage.setTitle("Trade Your Books");

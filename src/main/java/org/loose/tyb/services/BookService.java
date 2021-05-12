@@ -25,22 +25,24 @@ public class BookService {
         userRepository = database.getRepository(Book.class);
     }
 
+
     public static ObservableList<Book> Lista()
     {
         ObservableList<Book>list= FXCollections.observableArrayList();
 
         for (Book book : userRepository.find()) {
+            if(book.getOwner().equals(LoginController.loggedInAcc))
                 list.add(book);
         }
         return list;
     }
 
-    public static ObservableList<Book> Lista2()
+    public static ObservableList<Book> ListaLib()
     {
         ObservableList<Book>list= FXCollections.observableArrayList();
 
         for (Book book : userRepository.find()) {
-            if(book.getOwner().equals(LoginController.loggedInAcc))
+            if(!book.getOwner().equals(LoginController.loggedInAcc))
                 list.add(book);
         }
         return list;
@@ -69,7 +71,7 @@ public class BookService {
         }
     }
 
-    public static void deleteVehicle(String Bookname) {
+    public static void deleteBook(String Bookname) {
         for (Book k : userRepository.find()) {
             if(k.getBookname().equals(Bookname))
                 userRepository.remove(k);
