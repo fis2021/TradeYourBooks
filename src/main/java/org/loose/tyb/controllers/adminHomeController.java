@@ -38,7 +38,7 @@ public class adminHomeController {
     private TextField aBookname;
 
     @FXML
-    private TextField aAuthor;
+    private TextField aOwner;
 
     @FXML
     private Button adeleteButton;
@@ -51,11 +51,6 @@ public class adminHomeController {
 
     @FXML
     private Text TEXT;
-
-    @FXML
-    public void handleAdminDeleteButton(ActionEvent event) {
-
-    }
 
     @FXML
     public void handleAdminReportsButton(ActionEvent event) {
@@ -76,6 +71,23 @@ public class adminHomeController {
         acolPublisher.setCellValueFactory(new PropertyValueFactory<Book, String>("Publisher"));
         acolnoEx.setCellValueFactory(new PropertyValueFactory<Book, Integer>("noEx"));
 
+        table.setItems(BookService.allBooks());
+    }
+
+    public void handleAdminDeleteButton(ActionEvent actionEvent) {
+        String booknameText = aBookname.getText();
+        String owner = aOwner.getText();
+
+        if (booknameText == null || booknameText.isEmpty()) {
+            TEXT.setText("Introduce a book!!");
+            return;
+        }
+
+        if (owner == null || owner.isEmpty()) {
+            TEXT.setText("Introduce an Owner!");
+            return;
+        }
+        BookService.adminDeleteBook(aOwner.getText(), aBookname.getText());
         table.setItems(BookService.allBooks());
     }
 }
