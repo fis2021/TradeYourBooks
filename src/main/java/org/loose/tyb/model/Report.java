@@ -8,6 +8,7 @@ public class Report {
     @Id
     private String reason;
 
+    public Report(){}
     public Report(String owner, String book, String reason) {
         this.owner = owner;
         this.Bookname = book;

@@ -2,14 +2,20 @@ package org.loose.tyb.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import org.loose.tyb.model.Book;
 import org.loose.tyb.services.BookService;
+
+import java.io.IOException;
 
 public class adminHomeController {
 
@@ -54,12 +60,26 @@ public class adminHomeController {
 
     @FXML
     public void handleAdminReportsButton(ActionEvent event) {
-
+        try{
+            Stage stage = (Stage) TEXT.getScene().getWindow();
+            Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("Reports.fxml"));
+            Scene scene = new Scene(viewStudentsRoot, 850, 700);
+            stage.setScene(scene);
+        }catch(IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     public void handleLogoutButton(ActionEvent event) {
-
+        try{
+            Stage stage = (Stage) TEXT.getScene().getWindow();
+            Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
+            Scene scene = new Scene(viewStudentsRoot, 300, 275);
+            stage.setScene(scene);
+        }catch(IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

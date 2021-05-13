@@ -34,6 +34,14 @@ public class ReportService {
         return list;
     }
 
+    public static ObservableList<Report> ReportList() {
+        ObservableList<Report> list = FXCollections.observableArrayList();
+        for (Report rep : reportsRepository.find()) {
+            list.add(rep);
+        }
+        return list;
+    }
+
     public static void ReportBook(String Owner, String Bookname, String reason) throws AlreadyReported {
         try {
             reportsRepository.insert(new Report(Owner, Bookname, reason));
