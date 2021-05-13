@@ -80,4 +80,13 @@ public class BookService {
 
         }
     }
+
+    public static void adminDeleteBook(String Owner, String Bookname)
+    {
+        for(Book k : userRepository.find()){
+            if(k.getBookname().equals(Bookname) && k.getOwner().equals(Owner)){
+                userRepository.remove(k);
+            }
+        }
+    }
 }
