@@ -6,8 +6,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import org.loose.tyb.model.Book;
+import org.loose.tyb.services.BookService;
 
 public class adminHomeController {
 
@@ -63,5 +65,17 @@ public class adminHomeController {
     @FXML
     public void handleLogoutButton(ActionEvent event) {
 
+    }
+
+    @FXML
+    public void initialize() {
+        acolOwner.setCellValueFactory(new PropertyValueFactory<Book, String>("Owner"));
+        acolBookName.setCellValueFactory(new PropertyValueFactory<Book, String>("Bookname"));
+        acolAuthor.setCellValueFactory(new PropertyValueFactory<Book, String>("Author"));
+        acolYear.setCellValueFactory(new PropertyValueFactory<Book, Integer>("Year"));
+        acolPublisher.setCellValueFactory(new PropertyValueFactory<Book, String>("Publisher"));
+        acolnoEx.setCellValueFactory(new PropertyValueFactory<Book, Integer>("noEx"));
+
+        table.setItems(BookService.allBooks());
     }
 }

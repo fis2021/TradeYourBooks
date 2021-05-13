@@ -44,6 +44,14 @@ public class BookService {
         return list;
     }
 
+    public static ObservableList<Book> allBooks() {
+        ObservableList<Book> list = FXCollections.observableArrayList();
+        for (Book book : userRepository.find()) {
+                list.add(book);
+        }
+        return list;
+    }
+
     public static void addBook(String o, String bookname, String author, int year, String publisher, int ne) throws BookExists {
         try {
             userRepository.insert(new Book(o, bookname, author, year, publisher, ne));
