@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.loose.tyb.exceptions.AlreadyReported;
 import org.loose.tyb.model.Book;
 import org.loose.tyb.services.LibService;
 import org.loose.tyb.services.BookService;
@@ -99,8 +100,17 @@ public class LibHomeController {
         table.setItems(BookService.ListaLib());
     }
     public void handleReportButton(javafx.event.ActionEvent actionEvent) {
+        try{
         ReportService.ReportBook(libOwner.getText(), libBookname.getText(), libRR.getText());
         TEXT.setText("Book reported");
+        }
+        catch(NumberFormatException k){
+            TEXT.setText("Please introduce correct name!");
+        }
+        catch(AlreadyReported k)
+        {
+            TEXT.setText("Already reported for that reason!");
+        }
     }
     public void handleOfferTradeButton(javafx.event.ActionEvent actionEvent) {
     }
