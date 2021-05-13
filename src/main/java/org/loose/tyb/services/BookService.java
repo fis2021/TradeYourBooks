@@ -9,8 +9,6 @@ import org.loose.tyb.controllers.LoginController;
 import org.loose.tyb.exceptions.BookExists;
 import org.loose.tyb.model.Book;
 
-import java.util.Objects;
-
 import static org.loose.tyb.services.FileSystemService.getPathToFile;
 
 public class BookService {
@@ -26,41 +24,37 @@ public class BookService {
     }
 
 
-    public static ObservableList<Book> Lista()
-    {
-        ObservableList<Book>list= FXCollections.observableArrayList();
+    public static ObservableList<Book> Lista() {
+        ObservableList<Book> list = FXCollections.observableArrayList();
 
         for (Book book : userRepository.find()) {
-            if(book.getOwner().equals(LoginController.loggedInAcc))
+            if (book.getOwner().equals(LoginController.loggedInAcc))
                 list.add(book);
         }
         return list;
     }
 
-    public static ObservableList<Book> ListaLib()
-    {
-        ObservableList<Book>list= FXCollections.observableArrayList();
+    public static ObservableList<Book> ListaLib() {
+        ObservableList<Book> list = FXCollections.observableArrayList();
 
         for (Book book : userRepository.find()) {
-            if(!book.getOwner().equals(LoginController.loggedInAcc))
+            if (!book.getOwner().equals(LoginController.loggedInAcc))
                 list.add(book);
         }
         return list;
     }
 
-    public static void addBook(String o, String bookname, String author, int year, String publisher, int ne)  throws BookExists{
+    public static void addBook(String o, String bookname, String author, int year, String publisher, int ne) throws BookExists {
         try {
             userRepository.insert(new Book(o, bookname, author, year, publisher, ne));
-        }
-        catch(UniqueConstraintException e){
+        } catch (UniqueConstraintException e) {
             throw new BookExists();
         }
     }
 
-    public static void editBook(String o, String Bookname, String Author, int Year, String Publisher, int ne)
-    {
+    public static void editBook(String o, String Bookname, String Author, int Year, String Publisher, int ne) {
         for (Book k : userRepository.find()) {
-            if(k.getBookname().equals(Bookname) &&  k.getOwner().equals(LoginController.loggedInAcc)){
+            if (k.getBookname().equals(Bookname) && k.getOwner().equals(LoginController.loggedInAcc)) {
                 k.setOwner(o);
                 k.setAuthor(Author);
                 k.setYear(Year);
@@ -73,8 +67,9 @@ public class BookService {
 
     public static void deleteBook(String Bookname) {
         for (Book k : userRepository.find()) {
-            if(k.getBookname().equals(Bookname) && k.getOwner().equals(LoginController.loggedInAcc))
+            if (k.getBookname().equals(Bookname) && k.getOwner().equals(LoginController.loggedInAcc))
                 userRepository.remove(k);
+
         }
     }
 }

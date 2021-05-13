@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 import org.loose.tyb.exceptions.BookExists;
 import org.loose.tyb.model.Book;
 import org.loose.tyb.services.BookService;
-import org.loose.tyb.controllers.LoginController;
+
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 
@@ -160,8 +160,8 @@ public class UserHomeController {
         }
     }
     public void handleDeleteButton(javafx.event.ActionEvent actionEvent) {
-        BookService.deleteBook(Bookname.getText());
-        table.setItems(BookService.Lista());
+            BookService.deleteBook(Bookname.getText());
+            table.setItems(BookService.Lista());
     }
     public void handlePastTradesButton(javafx.event.ActionEvent actionEvent) {
     }

@@ -14,6 +14,8 @@ import javafx.stage.Stage;
 import org.loose.tyb.model.Book;
 import org.loose.tyb.services.LibService;
 import org.loose.tyb.services.BookService;
+import org.loose.tyb.services.ReportService;
+
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 
@@ -97,6 +99,8 @@ public class LibHomeController {
         table.setItems(BookService.ListaLib());
     }
     public void handleReportButton(javafx.event.ActionEvent actionEvent) {
+        ReportService.ReportBook(libOwner.getText(), libBookname.getText(), libRR.getText());
+        TEXT.setText("Book reported");
     }
     public void handleOfferTradeButton(javafx.event.ActionEvent actionEvent) {
     }
