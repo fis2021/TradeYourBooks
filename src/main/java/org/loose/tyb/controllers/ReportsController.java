@@ -68,7 +68,20 @@ public class ReportsController {
 
         @FXML
         void handleRepDeleteBookButton(ActionEvent event) {
+                String booknameText = arBookname.getText();
+                String owner = arOwner.getText();
 
+                if (booknameText == null || booknameText.isEmpty()) {
+                        TEXT.setText("Introduce a book!!");
+                        return;
+                }
+
+                if (owner == null || owner.isEmpty()) {
+                        TEXT.setText("Introduce an Owner!");
+                        return;
+                }
+                ReportService.deleteBookReport(arOwner.getText(), arBookname.getText());
+                table.setItems(ReportService.ReportList());
         }
 
         @FXML

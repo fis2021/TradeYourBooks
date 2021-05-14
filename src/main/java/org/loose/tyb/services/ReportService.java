@@ -12,6 +12,7 @@ import org.loose.tyb.model.Book;
 import org.loose.tyb.model.Report;
 
 import static org.loose.tyb.services.FileSystemService.getPathToFile;
+import org.loose.tyb.services.BookService;
 
 public class ReportService {
     private static ObjectRepository<Report> reportsRepository;
@@ -56,5 +57,14 @@ public class ReportService {
                 reportsRepository.remove(rep);
 
         }
+    }
+
+    public static void deleteBookReport(String owner, String bookname) {
+        for(Report rep : reportsRepository.find()){
+            if(rep.getBookname().equals(bookname) && rep.getOwner().equals(owner)){
+                reportsRepository.remove(rep);
+            }
+        }
+        BookService.adminDeleteBook(owner, bookname);
     }
 }
