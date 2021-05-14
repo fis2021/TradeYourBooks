@@ -19,8 +19,8 @@
             </columns>
         </TableView>
         <TextField fx:id="arBookname" layoutX="59.0" layoutY="287.0" />
-        <TextField fx:id="arOwner" layoutX="59.0" layoutY="220.0" />
-        <Label layoutX="59.0" layoutY="245.0" prefHeight="33.0" prefWidth="125.0" text="Book name">
+        <TextField fx:id="arOwner" layoutX="59.0" layoutY="207.0" />
+        <Label layoutX="59.0" layoutY="254.0" prefHeight="33.0" prefWidth="125.0" text="Book name">
             <font>
                 <Font size="18.0" />
             </font>
@@ -30,14 +30,20 @@
                 <Font size="18.0" />
             </font>
         </Label>
-        <Button fx:id="ardeleteButton" layoutX="56.0" layoutY="366.0" mnemonicParsing="false" onAction="#handleRepDeleteBookButton" prefHeight="45.0" prefWidth="149.0" text="DELETE BOOK" />
-        <Button fx:id="adreportsButton" layoutX="56.0" layoutY="429.0" mnemonicParsing="false" onAction="#handleReportDeleteButton" prefHeight="45.0" prefWidth="149.0" text="DELETE REPORT" />
-        <Button fx:id="controlPanelButton" layoutX="56.0" layoutY="489.0" mnemonicParsing="false" onAction="#handleControlPanelButton" prefHeight="58.0" prefWidth="149.0" text="CONTROL PANEL" />
+        <Button fx:id="ardeleteButton" layoutX="56.0" layoutY="429.0" mnemonicParsing="false" onAction="#handleRepDeleteBookButton" prefHeight="45.0" prefWidth="149.0" text="DELETE BOOK" />
+        <Button fx:id="adreportsButton" layoutX="56.0" layoutY="498.0" mnemonicParsing="false" onAction="#handleReportDeleteButton" prefHeight="45.0" prefWidth="149.0" text="DELETE REPORT" />
+        <Button fx:id="controlPanelButton" layoutX="56.0" layoutY="567.0" mnemonicParsing="false" onAction="#handleControlPanelButton" prefHeight="58.0" prefWidth="149.0" text="CONTROL PANEL" />
         <Text fx:id="TEXT" layoutX="56.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="170.0" />
         <Label layoutX="345.0" layoutY="33.0" prefHeight="102.0" prefWidth="248.0" text="Reports">
             <font>
                 <Font size="33.0" />
             </font>
         </Label>
+      <Label layoutX="59.0" layoutY="333.0" prefHeight="33.0" prefWidth="149.0" text="Reason">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="arReason" layoutX="59.0" layoutY="366.0" />
     </children>
 </AnchorPane>

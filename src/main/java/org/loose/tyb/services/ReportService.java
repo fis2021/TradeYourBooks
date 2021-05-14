@@ -18,7 +18,7 @@ public class ReportService {
 
     public static void initDatabase() {
         Nitrite database = Nitrite.builder()
-                .filePath(getPathToFile("TYBReports.db").toFile())
+                .filePath(getPathToFile("TYourBReports.db").toFile())
                 .openOrCreate("test", "test");
 
         reportsRepository = database.getRepository(Report.class);
@@ -47,6 +47,14 @@ public class ReportService {
             reportsRepository.insert(new Report(Owner, Bookname, reason));
         } catch (UniqueConstraintException e) {
             throw new AlreadyReported();
+        }
+    }
+
+    public static void deleteReport(String owner, String Bookname, String reason){
+        for (Report rep : reportsRepository.find()) {
+            if (rep.getBookname().equals(Bookname) && rep.getOwner().equals(owner) && rep.getReason().equals(reason))
+                reportsRepository.remove(rep);
+
         }
     }
 }
