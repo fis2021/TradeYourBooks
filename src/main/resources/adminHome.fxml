@@ -21,22 +21,22 @@
                 <TableColumn fx:id="acolnoEx" prefWidth="81.0" text="No. of ex." />
             </columns>
         </TableView>
-        <TextField fx:id="aBookname" layoutX="59.0" layoutY="287.0" />
-        <TextField fx:id="aOwner" layoutX="59.0" layoutY="220.0" />
-        <Label layoutX="59.0" layoutY="245.0" prefHeight="33.0" prefWidth="125.0" text="Book name">
+        <TextField fx:id="aBookname" layoutX="59.0" layoutY="214.0" />
+        <TextField fx:id="aOwner" layoutX="59.0" layoutY="272.0" />
+        <Label layoutX="59.0" layoutY="181.0" prefHeight="33.0" prefWidth="125.0" text="Book name">
             <font>
                 <Font size="18.0" />
             </font>
         </Label>
-        <Label layoutX="59.0" layoutY="174.0" prefHeight="33.0" prefWidth="149.0" text="Owner">
+        <Label layoutX="59.0" layoutY="239.0" prefHeight="33.0" prefWidth="149.0" text="Owner">
             <font>
                 <Font size="18.0" />
             </font>
         </Label>
         <Button fx:id="adeleteButton" layoutX="59.0" layoutY="431.0" mnemonicParsing="false" onAction="#handleAdminDeleteButton" prefHeight="45.0" prefWidth="149.0" text="DELETE" />
         <Button fx:id="reportsButton" layoutX="59.0" layoutY="499.0" mnemonicParsing="false" onAction="#handleAdminReportsButton" prefHeight="45.0" prefWidth="149.0" text="REPORTS" />
-        <Button fx:id="logoutButton" layoutX="56.0" layoutY="565.0" mnemonicParsing="false" onAction="#handleLogoutButton" prefHeight="58.0" prefWidth="149.0" text="Logout" />
-        <Text fx:id="TEXT" layoutX="56.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="170.0" />
+        <Button fx:id="logoutButton" layoutX="56.0" layoutY="565.0" mnemonicParsing="false" onAction="#handleLogoutButton" prefHeight="45.0" prefWidth="155.0" text="Logout" />
+        <Text fx:id="TEXT" layoutX="56.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="189.0" />
         <Label layoutX="392.0" layoutY="30.0" prefHeight="102.0" prefWidth="248.0" text="Control panel ;)">
             <font>
                 <Font size="33.0" />
