@@ -12,9 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import org.loose.tyb.model.Book;
 import org.loose.tyb.model.Report;
-import org.loose.tyb.services.BookService;
 import org.loose.tyb.services.ReportService;
 
 import java.io.IOException;
@@ -80,6 +78,7 @@ public class ReportsController {
                         TEXT.setText("Introduce an Owner!");
                         return;
                 }
+
                 ReportService.deleteBookReport(arOwner.getText(), arBookname.getText());
                 table.setItems(ReportService.ReportList());
         }
@@ -104,9 +103,9 @@ public class ReportsController {
 
         @FXML
         public void initialize() {
-                rcolOwner.setCellValueFactory(new PropertyValueFactory<Report, String>("Owner"));
-                rcolBookName.setCellValueFactory(new PropertyValueFactory<Report, String>("Bookname"));
-                rcolReason.setCellValueFactory(new PropertyValueFactory<Report, String>("Reason"));
+                rcolOwner.setCellValueFactory(new PropertyValueFactory<>("Owner"));
+                rcolBookName.setCellValueFactory(new PropertyValueFactory<>("Bookname"));
+                rcolReason.setCellValueFactory(new PropertyValueFactory<>("Reason"));
 
                 table.setItems(ReportService.ReportList());
         }

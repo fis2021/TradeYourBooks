@@ -33,7 +33,7 @@
         <Button fx:id="ardeleteButton" layoutX="56.0" layoutY="429.0" mnemonicParsing="false" onAction="#handleRepDeleteBookButton" prefHeight="45.0" prefWidth="149.0" text="DELETE BOOK" />
         <Button fx:id="adreportsButton" layoutX="56.0" layoutY="498.0" mnemonicParsing="false" onAction="#handleReportDeleteButton" prefHeight="45.0" prefWidth="149.0" text="DELETE REPORT" />
         <Button fx:id="controlPanelButton" layoutX="56.0" layoutY="567.0" mnemonicParsing="false" onAction="#handleControlPanelButton" prefHeight="58.0" prefWidth="149.0" text="CONTROL PANEL" />
-        <Text fx:id="TEXT" layoutX="56.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="170.0" />
+        <Text fx:id="TEXT" layoutX="59.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="170.0" />
         <Label layoutX="345.0" layoutY="33.0" prefHeight="102.0" prefWidth="248.0" text="Reports">
             <font>
                 <Font size="33.0" />

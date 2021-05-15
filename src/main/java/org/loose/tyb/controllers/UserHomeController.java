@@ -117,11 +117,11 @@ public class UserHomeController {
 
     @FXML
     public void initialize() {
-        colBookName.setCellValueFactory(new PropertyValueFactory<Book,String>("Bookname"));
-        colAuthor.setCellValueFactory(new PropertyValueFactory<Book,String>("Author"));
-        colYear.setCellValueFactory(new PropertyValueFactory<Book,Integer>("Year"));
-        colPublisher.setCellValueFactory(new PropertyValueFactory<Book,String>("Publisher"));
-        colnoEx.setCellValueFactory(new PropertyValueFactory<Book,Integer>("noEx"));
+        colBookName.setCellValueFactory(new PropertyValueFactory<>("Bookname"));
+        colAuthor.setCellValueFactory(new PropertyValueFactory<>("Author"));
+        colYear.setCellValueFactory(new PropertyValueFactory<>("Year"));
+        colPublisher.setCellValueFactory(new PropertyValueFactory<>("Publisher"));
+        colnoEx.setCellValueFactory(new PropertyValueFactory<>("noEx"));
 
 
         table.setItems(BookService.Lista());
@@ -130,11 +130,11 @@ public class UserHomeController {
     public void handleAddButton(javafx.event.ActionEvent actionEvent) throws NumberFormatException, BookExists {
         try {
             BookService.addBook(LoginController.loggedInAcc,Bookname.getText(), Author.getText(), Integer.parseInt(Year.getText()), Publisher.getText(), Integer.parseInt(noEx.getText()));
-            colBookName.setCellValueFactory(new PropertyValueFactory<Book,String>("Bookname"));
-            colAuthor.setCellValueFactory(new PropertyValueFactory<Book,String>("Author"));
-            colYear.setCellValueFactory(new PropertyValueFactory<Book,Integer>("Year"));
-            colPublisher.setCellValueFactory(new PropertyValueFactory<Book,String>("Publisher"));
-            colnoEx.setCellValueFactory(new PropertyValueFactory<Book,Integer>("noEx"));
+            colBookName.setCellValueFactory(new PropertyValueFactory<>("Bookname"));
+            colAuthor.setCellValueFactory(new PropertyValueFactory<>("Author"));
+            colYear.setCellValueFactory(new PropertyValueFactory<>("Year"));
+            colPublisher.setCellValueFactory(new PropertyValueFactory<>("Publisher"));
+            colnoEx.setCellValueFactory(new PropertyValueFactory<>("noEx"));
 
             table.setItems(BookService.Lista());
             TEXT.setText("");
