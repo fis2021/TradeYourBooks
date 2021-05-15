@@ -14,9 +14,10 @@ import static org.loose.tyb.services.FileSystemService.getPathToFile;
 public class BookService {
 
     private static ObjectRepository<Book> bookRepository;
+    private static Nitrite database;
 
     public static void initDatabase() {
-        Nitrite database = Nitrite.builder()
+         database = Nitrite.builder()
                 .filePath(getPathToFile("TradeYB12.db").toFile())
                 .openOrCreate("test", "test");
 
@@ -62,7 +63,7 @@ public class BookService {
 
     public static void editBook(String o, String Bookname, String Author, int Year, String Publisher, int ne) {
         for (Book k : bookRepository.find()) {
-            if (k.getBookname().equals(Bookname) && k.getOwner().equals(LoginController.loggedInAcc)) {
+            if (k.getBookname().equals(Bookname) && k.getOwner().equals(o)) {
                 k.setOwner(o);
                 k.setAuthor(Author);
                 k.setYear(Year);
@@ -73,9 +74,9 @@ public class BookService {
         }
     }
 
-    public static void deleteBook(String Bookname) {
+    public static void deleteBook(String Bookname, String o) {
         for (Book k : bookRepository.find()) {
-            if (k.getBookname().equals(Bookname) && k.getOwner().equals(LoginController.loggedInAcc))
+            if (k.getBookname().equals(Bookname) && (k.getOwner().equals(LoginController.loggedInAcc) || k.getOwner().equals(o)))
                 bookRepository.remove(k);
 
         }
@@ -89,4 +90,6 @@ public class BookService {
             }
         }
     }
+
+    public static Nitrite getDatabase(){return database;}
 }
