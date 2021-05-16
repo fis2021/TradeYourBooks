@@ -39,8 +39,8 @@ class BookServiceTest {
     void testBookIsAddedToDatabase() throws BookExists {
         BookService.addBook(a, b, c, an, publicator, exemplare);
         assertThat(BookService.allBooks()).isNotEmpty();
-        assertThat(BookService.ListaLib()).isNotEmpty();
-        assertThat(BookService.Lista()).isEmpty();
+        assertThat(BookService.ListaLib()).isEmpty();
+        assertThat(BookService.Lista()).isNotEmpty();
         assertThat(BookService.allBooks()).size().isEqualTo(1);
         Book book = BookService.allBooks().get(0);
         assertThat(book).isNotNull();

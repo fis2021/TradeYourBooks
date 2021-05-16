@@ -26,24 +26,11 @@
     <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="4">
-        <Button onAction="#handleLoginButtonAction" text="Login" />
+        <Button onAction="#handleLoginButtonAction" id="loginButton" text="Login" />
     </HBox>
     <HBox alignment="bottom_left" spacing="12" GridPane.columnIndex="0" GridPane.rowIndex="4">
-        <Button onAction="#handleRegisterButton" text="Register" />
+        <Button onAction="#handleRegisterButton" id ="registerButton" text="Register" />
     </HBox>
 
     <Text fx:id="loginMessage" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-   <columnConstraints>
-      <ColumnConstraints />
-      <ColumnConstraints />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-   </rowConstraints>
 </GridPane>
