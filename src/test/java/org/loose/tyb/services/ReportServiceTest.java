@@ -6,11 +6,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.loose.tyb.exceptions.AlreadyReported;
 import org.loose.tyb.exceptions.BookExists;
-import org.loose.tyb.model.Book;
 import org.loose.tyb.model.Report;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ReportServiceTest {
 

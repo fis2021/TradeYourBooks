@@ -99,12 +99,19 @@ public class LibHomeController {
         table.setItems(BookService.ListaLib());
     }
     public void handleReportButton(javafx.event.ActionEvent actionEvent) {
+        String bookname = libBookname.getText();
+        String owner = libOwner.getText();
+        String reason = libRR.getText();
+
+        if(bookname == null || bookname.isEmpty()  || owner == null || owner.isEmpty() || reason == null || reason.isEmpty())
+        {
+            TEXT.setText("All camps should be completed");
+            return;
+        }
+
         try{
         ReportService.ReportBook(libOwner.getText(), libBookname.getText(), libRR.getText());
         TEXT.setText("Book reported");
-        }
-        catch(NumberFormatException k){
-            TEXT.setText("Please introduce correct name!");
         }
         catch(AlreadyReported k)
         {

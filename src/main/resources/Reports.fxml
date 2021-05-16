@@ -9,41 +9,43 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="668.0" prefWidth="816.0" stylesheets="@darkmode.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.loose.tyb.controllers.ReportsController">
-    <children>
-        <TableView fx:id="table" layoutX="230.0" layoutY="166.0" prefHeight="478.0" prefWidth="504.0">
-            <columns>
-            <TableColumn fx:id="rcolOwner" prefWidth="75.0" text="Owner" />
-                <TableColumn fx:id="rcolBookName" prefWidth="227.0" text="Book name" />
-                <TableColumn fx:id="rcolReason" minWidth="0.0" prefWidth="201.0" text="Reason" />
-            </columns>
-        </TableView>
-        <TextField fx:id="arBookname" layoutX="59.0" layoutY="287.0" />
-        <TextField fx:id="arOwner" layoutX="59.0" layoutY="207.0" />
-        <Label layoutX="59.0" layoutY="254.0" prefHeight="33.0" prefWidth="125.0" text="Book name">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </Label>
-        <Label layoutX="59.0" layoutY="174.0" prefHeight="33.0" prefWidth="149.0" text="Owner">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </Label>
-        <Button fx:id="ardeleteButton" layoutX="56.0" layoutY="429.0" mnemonicParsing="false" onAction="#handleRepDeleteBookButton" prefHeight="45.0" prefWidth="149.0" text="DELETE BOOK" />
-        <Button fx:id="adreportsButton" layoutX="56.0" layoutY="498.0" mnemonicParsing="false" onAction="#handleReportDeleteButton" prefHeight="45.0" prefWidth="149.0" text="DELETE REPORT" />
-        <Button fx:id="controlPanelButton" layoutX="56.0" layoutY="567.0" mnemonicParsing="false" onAction="#handleControlPanelButton" prefHeight="58.0" prefWidth="149.0" text="CONTROL PANEL" />
-        <Text fx:id="TEXT" layoutX="59.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="170.0" />
-        <Label layoutX="345.0" layoutY="33.0" prefHeight="102.0" prefWidth="248.0" text="Reports">
-            <font>
-                <Font size="33.0" />
-            </font>
-        </Label>
-      <Label layoutX="59.0" layoutY="333.0" prefHeight="33.0" prefWidth="149.0" text="Reason">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="arReason" layoutX="59.0" layoutY="366.0" />
-    </children>
+<AnchorPane prefHeight="668.0" prefWidth="816.0" stylesheets="@darkmode.css" xmlns="http://javafx.com/javafx/16"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.loose.tyb.controllers.ReportsController">
+    <TableView fx:id="table" layoutX="230.0" layoutY="166.0" prefHeight="478.0" prefWidth="504.0">
+        <columns>
+        <TableColumn fx:id="rcolOwner" prefWidth="75.0" text="Owner"/>
+            <TableColumn fx:id="rcolBookName" prefWidth="227.0" text="Book name"/>
+            <TableColumn fx:id="rcolReason" minWidth="0.0" prefWidth="201.0" text="Reason"/>
+        </columns>
+    </TableView>
+    <TextField fx:id="arBookname" layoutX="59.0" layoutY="287.0"/>
+    <TextField fx:id="arOwner" layoutX="59.0" layoutY="207.0"/>
+    <Label layoutX="59.0" layoutY="254.0" prefHeight="33.0" prefWidth="125.0" text="Book name">
+        <font>
+            <Font size="18.0"/>
+        </font>
+    </Label>
+    <Label layoutX="59.0" layoutY="174.0" prefHeight="33.0" prefWidth="149.0" text="Owner">
+        <font>
+            <Font size="18.0"/>
+        </font>
+    </Label>
+    <Button fx:id="ardeleteButton" layoutX="56.0" layoutY="429.0" mnemonicParsing="false"
+            onAction="#handleRepDeleteBookButton" prefHeight="45.0" prefWidth="149.0" text="DELETE BOOK"/>
+    <Button fx:id="adreportsButton" layoutX="56.0" layoutY="498.0" mnemonicParsing="false"
+            onAction="#handleReportDeleteButton" prefHeight="45.0" prefWidth="149.0" text="DELETE REPORT"/>
+    <Button fx:id="controlPanelButton" layoutX="56.0" layoutY="567.0" mnemonicParsing="false"
+            onAction="#handleControlPanelButton" prefHeight="58.0" prefWidth="149.0" text="CONTROL PANEL"/>
+    <Text fx:id="TEXT" layoutX="59.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="170.0"/>
+    <Label layoutX="345.0" layoutY="33.0" prefHeight="102.0" prefWidth="248.0" text="Reports">
+        <font>
+            <Font size="33.0"/>
+        </font>
+    </Label>
+    <Label layoutX="59.0" layoutY="333.0" prefHeight="33.0" prefWidth="149.0" text="Reason">
+        <font>
+          <Font size="18.0"/>
+        </font>
+    </Label>
+    <TextField fx:id="arReason" layoutX="59.0" layoutY="366.0"/>
 </AnchorPane>

@@ -55,9 +55,7 @@ class UserServiceTest {
     @Test
     void testUserIsAddedAndFound() throws UsernameAlreadyExistsException {
         UserService.addUser(ADMIN, ADMIN);
-        assertThrows(AccountExists.class, () -> {
-            UserService.checkUsernameAndPassword(ADMIN, ADMIN);
-        });
+        assertThrows(AccountExists.class, () -> UserService.checkUsernameAndPassword(ADMIN, ADMIN));
     }
 
     @Test

@@ -22,7 +22,6 @@ import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(ApplicationExtension.class)
 class LibHomeControllerTest {
@@ -77,6 +76,27 @@ class LibHomeControllerTest {
         robot.clickOn("#reportButton");
         assertThat(ReportService.ReportList()).isNotEmpty();
         Assertions.assertThat(robot.lookup("#TEXT").queryText()).hasText(String.format("Book reported"));
+    }
+
+    @Test
+    void userNeedToCompleteAllCampsToReportABook(FxRobot robot) throws UsernameAlreadyExistsException, BookExists {
+        UserService.addUser(USER, PASS);
+        BookService.addBook("Marian", "Testul", "Minoi", 2020,"Corint",1);
+        assertThat(BookService.allBooks()).isNotEmpty();
+        assertThat(UserService.Lista()).isNotEmpty();
+        robot.clickOn("#usernameField");
+        robot.write(USER);
+        robot.clickOn("#passwordField");
+        robot.write(PASS);
+        robot.clickOn("#loginButton");
+        robot.clickOn("#LibPageButton");
+
+        robot.clickOn("#libBookname");
+        robot.write("Testul");
+        robot.clickOn("#libOwner");
+        robot.write("Marian");
+        robot.clickOn("#reportButton");
+        Assertions.assertThat(robot.lookup("#TEXT").queryText()).hasText(String.format("All camps should be completed"));
     }
 
     @Test
