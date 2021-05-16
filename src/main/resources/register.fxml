@@ -28,11 +28,11 @@
 
     <Text fx:id="registrationMessage" GridPane.columnIndex="1" GridPane.rowIndex="7" />
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="8">
-        <Button onAction="#handleRegisterAction" text="Register" />
+        <Button onAction="#handleRegisterAction" id ="registerButton" text="Register" />
     </HBox>
 
     <HBox alignment="bottom_left" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="8">
-        <Button onAction="#handleLogInAction" text="Login" />
+        <Button onAction="#handleLogInAction" id ="loginButton" text="Login" />
     </HBox>
    <columnConstraints>
       <ColumnConstraints />

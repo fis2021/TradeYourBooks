@@ -79,7 +79,7 @@ public class LoginController {
         try {
             Stage stage = (Stage) loginMessage.getScene().getWindow();
             Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
-            Scene scene = new Scene(viewStudentsRoot, 400, 275);
+            Scene scene = new Scene(viewStudentsRoot, 300, 275);
             stage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();
