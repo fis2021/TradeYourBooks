@@ -22,7 +22,6 @@ import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(ApplicationExtension.class)
 class ReportsControllerTest {
@@ -34,7 +33,7 @@ class ReportsControllerTest {
     }
 
     @BeforeEach
-    void setUp(FxRobot robot) throws Exception{
+    void setUp() throws Exception{
         FileSystemService.APPLICATION_FOLDER=".test";
         FileSystemService.initDirectory();
         FileUtils.cleanDirectory(FileSystemService.getApplicationHomeFolder().toFile());

@@ -5,14 +5,10 @@ import javafx.collections.ObservableList;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.exceptions.UniqueConstraintException;
 import org.dizitart.no2.objects.ObjectRepository;
-import org.loose.tyb.controllers.LoginController;
 import org.loose.tyb.exceptions.AlreadyReported;
-import org.loose.tyb.exceptions.BookExists;
-import org.loose.tyb.model.Book;
 import org.loose.tyb.model.Report;
 
 import static org.loose.tyb.services.FileSystemService.getPathToFile;
-import org.loose.tyb.services.BookService;
 
 public class ReportService {
     private static ObjectRepository<Report> reportsRepository;
