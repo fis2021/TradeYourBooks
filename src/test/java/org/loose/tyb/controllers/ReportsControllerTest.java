@@ -17,6 +17,7 @@ import org.loose.tyb.services.FileSystemService;
 import org.loose.tyb.services.ReportService;
 import org.loose.tyb.services.UserService;
 import org.testfx.api.FxRobot;
+import org.testfx.assertions.api.Assertions;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
@@ -108,5 +109,81 @@ class ReportsControllerTest {
         robot.clickOn("#loginButton");
         robot.clickOn("#reportsButton");
         robot.clickOn("#controlPanelButton");
+    }
+
+    @Test
+    void adminNeeedsToIntrdouceOwnerToDeleteAReport(FxRobot robot) throws AlreadyReported, UsernameAlreadyExistsException {
+        UserService.addUser("admin", "admin");
+        ReportService.ReportBook("Gigi", "Tanda", "Dont exists");
+        robot.clickOn("#usernameField");
+        robot.write("admin");
+        robot.clickOn("#passwordField");
+        robot.write("admin");
+        robot.clickOn("#loginButton");
+        robot.clickOn("#reportsButton");
+
+        robot.clickOn("#arBookname");
+        robot.write("Tanda");
+        robot.clickOn("#arReason");
+        robot.write("Dont exists");
+        robot.clickOn("#adreportsButton");
+        Assertions.assertThat(robot.lookup("#TEXT").queryText()).hasText(String.format("Introduce an Owner!"));
+    }
+
+    @Test
+    void adminNeedsToIntrdouceBookNameToDeleteAreport(FxRobot robot) throws UsernameAlreadyExistsException, AlreadyReported {
+        UserService.addUser("admin", "admin");
+        ReportService.ReportBook("Gigi", "Tanda", "Dont exists");
+        robot.clickOn("#usernameField");
+        robot.write("admin");
+        robot.clickOn("#passwordField");
+        robot.write("admin");
+        robot.clickOn("#loginButton");
+        robot.clickOn("#reportsButton");
+
+        robot.clickOn("#arOwner");
+        robot.write("Gigi");
+        robot.clickOn("#arReason");
+        robot.write("Dont exists");
+        robot.clickOn("#adreportsButton");
+        Assertions.assertThat(robot.lookup("#TEXT").queryText()).hasText(String.format("Introduce a book!!"));
+    }
+
+    @Test
+    void adminNeeedsToIntrdouceOwnerToDeleteABookAndItsReport(FxRobot robot) throws AlreadyReported, UsernameAlreadyExistsException {
+        UserService.addUser("admin", "admin");
+        ReportService.ReportBook("Gigi", "Tanda", "Dont exists");
+        robot.clickOn("#usernameField");
+        robot.write("admin");
+        robot.clickOn("#passwordField");
+        robot.write("admin");
+        robot.clickOn("#loginButton");
+        robot.clickOn("#reportsButton");
+
+        robot.clickOn("#arBookname");
+        robot.write("Tanda");
+        robot.clickOn("#arReason");
+        robot.write("Dont exists");
+        robot.clickOn("#ardeleteButton");
+        Assertions.assertThat(robot.lookup("#TEXT").queryText()).hasText(String.format("Introduce an Owner!"));
+    }
+
+    @Test
+    void adminNeeedsToIntrdouceABookNameToDeleteABookAndItsReport(FxRobot robot) throws AlreadyReported, UsernameAlreadyExistsException {
+        UserService.addUser("admin", "admin");
+        ReportService.ReportBook("Gigi", "Tanda", "Dont exists");
+        robot.clickOn("#usernameField");
+        robot.write("admin");
+        robot.clickOn("#passwordField");
+        robot.write("admin");
+        robot.clickOn("#loginButton");
+        robot.clickOn("#reportsButton");
+
+        robot.clickOn("#arOwner");
+        robot.write("Gigi");
+        robot.clickOn("#arReason");
+        robot.write("Dont exists");
+        robot.clickOn("#ardeleteButton");
+        Assertions.assertThat(robot.lookup("#TEXT").queryText()).hasText(String.format("Introduce a book!!"));
     }
 }
