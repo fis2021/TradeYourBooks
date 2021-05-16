@@ -63,13 +63,7 @@ public class UserHomeController {
     private Button deleteButton;
 
     @FXML
-    private Button pastTradesButton;
-
-    @FXML
     private Button logoutButton;
-
-    @FXML
-    private Button seeRequestsButton;
 
     @FXML
     private Text TEXT;
@@ -78,41 +72,6 @@ public class UserHomeController {
     private Button LibPageButton;
 
     public UserHomeController() {
-    }
-
-    @FXML
-    public void handleAddButton(ActionEvent event) {
-
-    }
-
-    @FXML
-    public void handleDeleteButton(ActionEvent event) {
-
-    }
-
-    @FXML
-    public void handleEditButton(ActionEvent event) {
-
-    }
-
-    @FXML
-    public void handleHomePageButton(ActionEvent event) {
-
-    }
-
-    @FXML
-    public void handleLogoutButton(ActionEvent event) {
-
-    }
-
-    @FXML
-    public void handlePastTradesButton(ActionEvent event) {
-
-    }
-
-    @FXML
-    public void handleSeeRequestsButton(ActionEvent event) {
-
     }
 
     @FXML
