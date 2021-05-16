@@ -75,6 +75,30 @@ class RegistrationControllerTest {
     }
 
     @Test
+    void testUserMustIntroduceAPassword(FxRobot robot) throws UsernameAlreadyExistsException {
+        UserService.addUser(USER, PASS);
+        robot.clickOn("#usernameField");
+        robot.write(USER);
+        robot.clickOn("#registerButton");
+        assertThat(robot.lookup("#registrationMessage").queryText()).hasText(String.format("Password cannot be empty"));
+    }
+
+    @Test
+    void testUserMustIntroduceAnUsername(FxRobot robot) throws UsernameAlreadyExistsException{
+        UserService.addUser(USER, PASS);
+        robot.clickOn("#passwordField");
+        robot.write(PASS);
+        robot.clickOn("#registerButton");
+        assertThat(robot.lookup("#registrationMessage").queryText()).hasText(String.format("Please type in a username!"));
+    }
+
+    @Test
+    void testBothFieldEmpty(FxRobot robot) throws UsernameAlreadyExistsException {
+        UserService.addUser(USER, PASS);
+        robot.clickOn("#registerButton");
+        assertThat(robot.lookup("#registrationMessage").queryText()).hasText(String.format("Please type in a username!"));
+    }
+    @Test
     void testGoToRegister(FxRobot robot) {
         robot.clickOn("#loginButton");
     }
