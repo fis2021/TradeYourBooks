@@ -16,23 +16,13 @@ import org.loose.tyb.services.BookService;
 
 public class ReportService {
     private static ObjectRepository<Report> reportsRepository;
-
+    private static Nitrite database;
     public static void initDatabase() {
-        Nitrite database = Nitrite.builder()
+        database = Nitrite.builder()
                 .filePath(getPathToFile("TYourBReports.db").toFile())
                 .openOrCreate("test", "test");
 
         reportsRepository = database.getRepository(Report.class);
-    }
-
-    public static ObservableList<Report> Reps()
-    {
-        ObservableList<Report>list= FXCollections.observableArrayList();
-
-        for (Report rep : reportsRepository.find()) {
-                list.add(rep);
-        }
-        return list;
     }
 
     public static ObservableList<Report> ReportList() {
@@ -67,4 +57,6 @@ public class ReportService {
         }
         BookService.adminDeleteBook(owner, bookname);
     }
+
+    public static Nitrite getDatabase(){return database;}
 }

@@ -15,7 +15,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        initDirectory();
         UserService.initDatabase();
         BookService.initDatabase();
         ReportService.initDatabase();
@@ -24,12 +23,6 @@ public class Main extends Application {
         primaryStage.setTitle("Trade Your Books");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
-    }
-
-    private void initDirectory() {
-        Path applicationHomePath = FileSystemService.APPLICATION_HOME_PATH;
-        if (!Files.exists(applicationHomePath))
-            applicationHomePath.toFile().mkdirs();
     }
 
 

@@ -19,9 +19,11 @@ import static org.loose.tyb.services.FileSystemService.getPathToFile;
 public class UserService {
 
     private static ObjectRepository<User> userRepository;
+    private static Nitrite database;
 
     public static void initDatabase() {
-        Nitrite database = Nitrite.builder()
+        FileSystemService.initDirectory();
+        database = Nitrite.builder()
                 .filePath(getPathToFile("TradeYB11.db").toFile())
                 .openOrCreate("test", "test");
 
@@ -40,7 +42,7 @@ public class UserService {
         }
     }
 
-    private static String encodePassword(String salt, String password) {
+    public static String encodePassword(String salt, String password) {
         MessageDigest md = getMessageDigest();
         md.update(salt.getBytes(StandardCharsets.UTF_8));
 
@@ -61,26 +63,6 @@ public class UserService {
         return md;
     }
 
-    public static void verifyLogin(String username,String password) throws AccountExists {
-        checkUserCredentialsInLogin(username,password);
-    }
-
-    private static void checkUserCredentialsInLogin(String username, String password) throws AccountExists {
-        int contor=0;
-        for(User user : userRepository.find()) {
-            if(Objects.equals(username,user.getUsername()))
-            {
-                if(Objects.equals(user.getPassword(),encodePassword(username,password)))
-                {
-                    contor++;
-                }
-            }
-        }
-        if(contor==0)
-        {
-            throw new AccountExists();
-        }
-    }
 
     public static void checkUsernameAndPassword(String username,String password) throws AccountExists {
         for (User user : userRepository.find()) {
@@ -91,7 +73,7 @@ public class UserService {
 
     public static ObservableList<User> Lista()
     {
-        ObservableList<User>list= FXCollections.observableArrayList();;
+        ObservableList<User>list= FXCollections.observableArrayList();
 
         for (User k : userRepository.find()) {
             list.add(k);
@@ -99,4 +81,7 @@ public class UserService {
         return list;
     }
 
+    public static Nitrite getDatabase() {
+        return database;
+    }
 }

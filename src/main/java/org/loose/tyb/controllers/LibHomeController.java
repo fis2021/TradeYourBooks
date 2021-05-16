@@ -13,7 +13,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.loose.tyb.exceptions.AlreadyReported;
 import org.loose.tyb.model.Book;
-import org.loose.tyb.services.LibService;
 import org.loose.tyb.services.BookService;
 import org.loose.tyb.services.ReportService;
 

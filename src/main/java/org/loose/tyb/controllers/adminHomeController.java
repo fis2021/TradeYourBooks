@@ -84,12 +84,12 @@ public class adminHomeController {
 
     @FXML
     public void initialize() {
-        acolOwner.setCellValueFactory(new PropertyValueFactory<Book, String>("Owner"));
-        acolBookName.setCellValueFactory(new PropertyValueFactory<Book, String>("Bookname"));
-        acolAuthor.setCellValueFactory(new PropertyValueFactory<Book, String>("Author"));
-        acolYear.setCellValueFactory(new PropertyValueFactory<Book, Integer>("Year"));
-        acolPublisher.setCellValueFactory(new PropertyValueFactory<Book, String>("Publisher"));
-        acolnoEx.setCellValueFactory(new PropertyValueFactory<Book, Integer>("noEx"));
+        acolOwner.setCellValueFactory(new PropertyValueFactory<>("Owner"));
+        acolBookName.setCellValueFactory(new PropertyValueFactory<>("Bookname"));
+        acolAuthor.setCellValueFactory(new PropertyValueFactory<>("Author"));
+        acolYear.setCellValueFactory(new PropertyValueFactory<>("Year"));
+        acolPublisher.setCellValueFactory(new PropertyValueFactory<>("Publisher"));
+        acolnoEx.setCellValueFactory(new PropertyValueFactory<>("noEx"));
 
         table.setItems(BookService.allBooks());
     }

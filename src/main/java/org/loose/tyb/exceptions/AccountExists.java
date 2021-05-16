@@ -9,8 +9,4 @@ public class AccountExists extends Exception {
         this.username = username;
     }
 
-    public AccountExists() {
-
-    }
-
 }
