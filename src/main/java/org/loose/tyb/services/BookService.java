@@ -13,7 +13,7 @@ import static org.loose.tyb.services.FileSystemService.getPathToFile;
 
 public class BookService {
 
-    private static ObjectRepository<Book> bookRepository;
+    public static ObjectRepository<Book> bookRepository;
     private static Nitrite database;
 
     public static void initDatabase() {
@@ -22,6 +22,10 @@ public class BookService {
                 .openOrCreate("test", "test");
 
         bookRepository = database.getRepository(Book.class);
+    }
+
+    public static void closedatabase(){
+        database.close();
     }
 
 
