@@ -22,7 +22,7 @@ public class Book {
         this.Year = an;
         this.Publisher = editura;
         this.numbEx = ne;
-        this.onb = owner+book;
+        this.onb = owner+book+autor+editura;
     }
 
     public String getOwner(){return owner;}
