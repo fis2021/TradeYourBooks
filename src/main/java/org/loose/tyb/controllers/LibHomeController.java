@@ -1,22 +1,22 @@
 package org.loose.tyb.controllers;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.loose.tyb.exceptions.AlreadyReported;
 import org.loose.tyb.model.Book;
+import org.loose.tyb.model.TradeOffer;
 import org.loose.tyb.services.BookService;
 import org.loose.tyb.services.ReportService;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class LibHomeController {
@@ -66,24 +66,69 @@ public class LibHomeController {
     @FXML
     private TextField libRR;
 
-    @FXML
-    public void handleHomePageButton(ActionEvent event) {
-
+    public void handleOfferTradeButton(javafx.event.ActionEvent event) throws IOException {
+        StackPane secondaryLayout1 = new StackPane();
+        Label textlabel = new Label("Trade sent succesfully!");
+        secondaryLayout1.getChildren().add(textlabel);
+        Scene secondScene1 = new Scene(secondaryLayout1, 600, 400);
+        Stage stage = new Stage();
+        TradeOffer trade = new TradeOffer(libOwner.getText(), colLibOwner.getText(), libBookname.getText(), collLibBookName.getText());
+        stage.setTitle("TRADE SENT");
+        stage.setScene(secondScene1);
+        stage.show();
     }
 
-    @FXML
-    public void handleLogoutButton(ActionEvent event) {
-
-    }
-
-    @FXML
-    public void handleOfferTradeButton(ActionEvent event) {
-
-    }
-
-    @FXML
-    public void handleReportButton(ActionEvent event) {
-
+    public void handleSeeUserLib(javafx.event.ActionEvent event) throws IOException{
+        StackPane secondaryLayout1 = new StackPane();
+        Label textlabel = new Label("Choose the user whose lib you want to see");
+        TextField textie = new TextField();
+        Button buton = new Button("Search");
+        secondaryLayout1.getChildren().add(textie);
+        secondaryLayout1.getChildren().add(textlabel);
+        secondaryLayout1.getChildren().add(buton);
+        buton.setTranslateY(-100);
+        textlabel.setTranslateY(100);
+        Scene secondScene1 = new Scene(secondaryLayout1, 600, 400);
+        Stage stage = new Stage();
+        stage.setTitle("Choose user to see the lib");
+        stage.setScene(secondScene1);
+        stage.show();
+        buton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(javafx.event.ActionEvent actionEvent) {
+                stage.close();
+                String owner = textie.getText();
+                //System.out.println(carte);
+                BookService.closedatabase();
+                BookService.initDatabase();
+                String afisare = " ";
+                for(Book t : BookService.bookRepository.find())
+                    if(t.getOwner().equals(owner)){
+                        afisare = afisare + t.getBookname() + " by " + t.getAuthor() + "\n" + t.getPublisher() + "\n" + t.getYear() + "\n" + t.getOwner() + "\n" + t.getNoEx() +"\n";
+                    }
+                if(!afisare.equals(" ")) {
+                    StackPane secondaryLayout1 = new StackPane();
+                    Label write = new Label();
+                    write.setText(afisare);
+                    secondaryLayout1.getChildren().add(write);
+                    Scene secondScene1 = new Scene(secondaryLayout1, 600, 400);
+                    Stage newWindow1 = new Stage();
+                    newWindow1.setTitle("The searched books from that owner");
+                    newWindow1.setScene(secondScene1);
+                    newWindow1.show();
+                }
+                else {
+                    StackPane secondaryLayout1 = new StackPane();
+                    Label write = new Label("Ownerul cautat nu exista!!!");
+                    secondaryLayout1.getChildren().add(write);
+                    Scene secondScene1 = new Scene(secondaryLayout1, 600, 400);
+                    Stage newWindow1 = new Stage();
+                    newWindow1.setTitle("Ownerul nu exista");
+                    newWindow1.setScene(secondScene1);
+                    newWindow1.show();
+                }
+            }
+        });
     }
 
     @FXML
@@ -110,15 +155,13 @@ public class LibHomeController {
         }
 
         try{
-        ReportService.ReportBook(libOwner.getText(), libBookname.getText(), libRR.getText());
-        TEXT.setText("Book reported");
+            ReportService.ReportBook(libOwner.getText(), libBookname.getText(), libRR.getText());
+            TEXT.setText("Book reported");
         }
         catch(AlreadyReported k)
         {
             TEXT.setText("Already reported for that reason!");
         }
-    }
-    public void handleOfferTradeButton(javafx.event.ActionEvent actionEvent) {
     }
     public void handleLogoutButton(javafx.event.ActionEvent actionEvent) {
         try{
