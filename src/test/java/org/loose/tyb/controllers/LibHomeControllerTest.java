@@ -158,4 +158,20 @@ class LibHomeControllerTest {
         robot.clickOn("#logoutButton");
     }
 
+    @Test
+    void userCanSearchForABook(FxRobot TalpaJr) throws UsernameAlreadyExistsException {
+        UserService.addUser(USER, PASS);
+        TalpaJr.clickOn("#usernameField");
+        TalpaJr.write(USER);
+        TalpaJr.clickOn("#passwordField");
+        TalpaJr.write(PASS);
+        TalpaJr.clickOn("#loginButton");
+        TalpaJr.clickOn("#LibPageButton");
+        TalpaJr.clickOn("#seelib");
+        TalpaJr.clickOn();
+        TalpaJr.write("gigi");
+        TalpaJr.clickOn("Search");
+        assertThat(TalpaJr.lookup("Ownerul cautat nu exista!!!"));
+    }
+
 }
