@@ -166,7 +166,8 @@ public class UserHomeController {
             public void handle(javafx.event.ActionEvent actionEvent) {
                 newWindow1.close();
                 String carte = write.getText();
-                System.out.println(carte);
+                //System.out.println(carte);
+
                 BookService.closedatabase();
                 BookService.initDatabase();
                 String afisare = " ";
