@@ -167,6 +167,7 @@ public class UserHomeController {
                 newWindow1.close();
                 String carte = write.getText();
                 //System.out.println(carte);
+
                 BookService.closedatabase();
                 BookService.initDatabase();
                 String afisare = " ";
