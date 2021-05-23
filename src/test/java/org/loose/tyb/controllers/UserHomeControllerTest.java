@@ -223,4 +223,38 @@ class UserHomeControllerTest {
         );
         assertThat(BookService.allBooks()).isNotEmpty();
     }
+
+    @Test
+    void userCanSearchForABook(FxRobot TalpaJr) throws UsernameAlreadyExistsException {
+        UserService.addUser(USER, PASS);
+        TalpaJr.clickOn("#usernameField");
+        TalpaJr.write(USER);
+        TalpaJr.clickOn("#passwordField");
+        TalpaJr.write(PASS);
+        TalpaJr.clickOn("#loginButton");
+        TalpaJr.clickOn("#search");
+        TalpaJr.clickOn();
+        TalpaJr.write("Alaska");
+        TalpaJr.clickOn("Search");
+        assertThat(TalpaJr.lookup("Cartea cautata nu exista!!!"));
+        TalpaJr.closeCurrentWindow();
+        TalpaJr.clickOn("#Bookname");
+        TalpaJr.write("2 Steps from hell");
+        TalpaJr.clickOn("#Author");
+        TalpaJr.write("Lucian Blaga");
+        TalpaJr.clickOn("#Year");
+        TalpaJr.write("1965");
+        TalpaJr.clickOn("#Publisher");
+        TalpaJr.write("Artemis");
+        TalpaJr.clickOn("#noEx");
+        TalpaJr.write("1");
+        TalpaJr.clickOn("#addButton");
+        TalpaJr.clickOn("#search");
+        TalpaJr.clickOn();
+        TalpaJr.write("2 Steps from hell");
+        TalpaJr.clickOn("Search");
+        assertThat(TalpaJr.lookup("2 Steps from hell"));
+        TalpaJr.closeCurrentWindow();
+
+    }
 }
